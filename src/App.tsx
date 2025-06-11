@@ -9,6 +9,7 @@ import YouthDashboard from "./pages/YouthDashboard";
 import SavingsGoalsManager from "./pages/SavingsGoalsManager";
 import TransactionHistoryAndInsights from "./pages/TransactionHistoryAndInsights";
 import ProfileAndParentalHub from "./pages/ProfileAndParentalHub";
+import ParentDashboard from "./pages/ParentDashboard"; // Added import
 import NotFound from "./pages/NotFound"; // Assuming NotFound.tsx exists in src/pages/
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
           
           {/* Protected Routes Example (redirect if not authenticated) */}
           <Route path="/youth-dashboard" element={isAuthenticated() ? <YouthDashboard /> : <Navigate to="/onboarding-process" />} />
+          <Route path="/parent-dashboard" element={isAuthenticated() ? <ParentDashboard /> : <Navigate to="/onboarding-process" />} /> {/* Added route */}
           <Route path="/savings-goals-manager" element={isAuthenticated() ? <SavingsGoalsManager /> : <Navigate to="/onboarding-process" />} />
           <Route path="/transaction-history-and-insights" element={isAuthenticated() ? <TransactionHistoryAndInsights /> : <Navigate to="/onboarding-process" />} />
           <Route path="/profile-and-parental-hub" element={isAuthenticated() ? <ProfileAndParentalHub /> : <Navigate to="/onboarding-process" />} />
